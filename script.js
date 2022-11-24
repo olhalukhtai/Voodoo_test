@@ -2,19 +2,13 @@ const changeSelectByCust = () => {
 
     const createSelect = (options) => {
         const select = document.createElement('select')
-        
-        console.log('type',typeof(options))
-        console.log(options)
-
-        if (typeof(options) == 'array') {
-            options.reverse()
-        }
+        Array.from(options)
+        options.reverse()
         select.append(...options)
         return select
     }
 
     const selectAll= document.querySelectorAll("select")
-    console.log(selectAll)
     for (const select of selectAll) {    
         const newSelect = createSelect(Array.from(select.children)) 
         newSelect.className = select.className
@@ -199,7 +193,6 @@ function initMap() {
 
     const iconBase="./location_map_marker_icon_131522.png"
 
-    console.log(iconBase)
     const marker = new google.maps.Marker({
     position: voodoo,
     map: map,
